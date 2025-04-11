@@ -1,7 +1,7 @@
-# AWS Lambda Repository ⚡  
+# AWS Lambda Repository
 
 ## **Overview**  
-This repository contains **independently developed and deployed AWS Lambda functions**, designed to work within the **Configuration-Driven AWS Deployment Model**.  
+This repository contains **independently developed and deployed AWS Lambda functions**, designed to work within [Adage: AWS Deployment Framework](https://github.com/tstrall/adage).  
 - **Decoupled from Terraform** – Lambdas do not require Terraform to be updated when new services are added.  
 - **Dynamically resolve dependencies** – Using AWS Parameter Store, Lambdas discover database endpoints, secrets, and other resources at runtime.  
 - **Secure & auditable** – Secrets are retrieved from AWS Secrets Manager only when needed.  
@@ -9,7 +9,7 @@ This repository contains **independently developed and deployed AWS Lambda funct
 
 ---
 
-## **📂 Repository Structure**
+## **Repository Structure**
 ```
 aws-lambda/
 │── user-auth-service/
@@ -29,7 +29,7 @@ aws-lambda/
 
 ---
 
-## **🚀 How It Works**
+## **How It Works**
 ### **1️⃣ Lambdas Discover Infrastructure at Runtime**
 Instead of **hardcoding infrastructure details**, Lambdas retrieve **runtime configurations** from AWS Parameter Store.  
 
@@ -45,7 +45,7 @@ Instead, only **the ARN of the secret is stored**, and the Lambda retrieves the 
 
 ---
 
-## **📖 Example: Configuring & Deploying a Lambda**
+## **Example: Configuring & Deploying a Lambda**
 ### **1️⃣ Define the Lambda Configuration**
 Add a JSON entry to the **[`aws-config`](https://github.com/your-username/aws-config)** repository:
 ```json
@@ -107,7 +107,7 @@ Example AWS Parameter Store entries for multiple Lambda versions:
 
 ---
 
-## **🔐 Security & Compliance**
+## **Security & Compliance**
 ✅ **Lambdas only access resources they need** – IAM roles follow **least privilege**.  
 ✅ **Secrets are retrieved securely from AWS Secrets Manager** – No plaintext credentials.  
 ✅ **Configurations are version-controlled via Git** – Full audit trail of changes.  
@@ -115,17 +115,17 @@ Example AWS Parameter Store entries for multiple Lambda versions:
 
 ---
 
-## 🧠 Project Background
+## Project Background
 
 This repository is part of a broader open-source architecture I’ve developed to support configuration-driven AWS deployment.
 
 While some of these ideas were shaped through years of professional experience and refinement, the implementations here are entirely original — built independently and outside the context of any prior employment.
 
-For the full context and design principles behind this system, see the [aws-deployment-guide](https://github.com/tstrall/aws-deployment-guide).
+For the full context and design principles behind this system, see [Adage: AWS Deployment Framework](https://github.com/tstrall/adage)
 
 ---
 
-## **📌 Next Steps**
+## ** Next Steps**
 Want to implement this in your AWS environment? Here’s what to do next:  
 1️⃣ **Fork this repo and customize the Lambda functions.**  
 2️⃣ **Connect it to `aws-config` for dynamic configuration.**  
@@ -136,4 +136,4 @@ This is an open-source approach, and improvements are always welcome.
 
 ---
 
-📢 **Like this approach? Star the repo and follow for updates!** 🚀  
+**Like this approach? Star the repo and follow for updates!**
