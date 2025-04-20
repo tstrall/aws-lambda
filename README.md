@@ -35,8 +35,8 @@ Instead of **hardcoding infrastructure details**, Lambdas retrieve **runtime con
 
 For example, if `user-auth-service` needs access to an **Aurora-Postgres database**, it looks up:  
 ```
-/aws/aurora-postgres/main-db/runtime ✅ (Contains DB host, port, security groups)
-/aws/aurora-postgres/main-db/secret  ✅ (Contains DB credentials, retrieved securely)
+/iac/aurora-postgres/main-db/runtime ✅ (Contains DB host, port, security groups)
+/iac/aurora-postgres/main-db/secret  ✅ (Contains DB credentials, retrieved securely)
 ```
 
 ### **2️⃣ Secrets Are Retrieved Securely**
@@ -47,7 +47,7 @@ Instead, only **the ARN of the secret is stored**, and the Lambda retrieves the 
 
 ## **Example: Configuring & Deploying a Lambda**
 ### **1️⃣ Define the Lambda Configuration**
-Add a JSON entry to the **[`aws-config`](https://github.com/your-username/aws-config)** repository:
+Add a JSON entry to the **[`aws-config`](https://github.com/your-username/iac-config)** repository:
 ```json
 {
   "database_nickname": "main-db",
@@ -74,7 +74,7 @@ secretsmanager = boto3.client("secretsmanager")
 
 # 1️⃣ Retrieve database runtime details
 db_config = json.loads(
-    ssm.get_parameter(Name="/aws/aurora-postgres/main/runtime")["Parameter"]["Value"]
+    ssm.get_parameter(Name="/iac/aurora-postgres/main/runtime")["Parameter"]["Value"]
 )
 
 db_host = db_config["endpoint"]
@@ -100,9 +100,9 @@ Since each Lambda function **follows the same naming convention**, it’s easy t
 
 Example AWS Parameter Store entries for multiple Lambda versions:
 ```
-/aws/lambda/user-auth-service/main/config ✅ (Main production instance)
-/aws/lambda/user-auth-service/staging/config ✅ (Staging version)
-/aws/lambda/user-auth-service/feature-x/config ✅ (Feature-specific deployment)
+/iac/lambda/user-auth-service/main/config ✅ (Main production instance)
+/iac/lambda/user-auth-service/staging/config ✅ (Staging version)
+/iac/lambda/user-auth-service/feature-x/config ✅ (Feature-specific deployment)
 ```
 
 ---
