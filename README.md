@@ -1,7 +1,7 @@
 # AWS Lambda Repository
 
 ## **Overview**  
-This repository contains **independently developed and deployed AWS Lambda functions**, designed to work within [Adage: AWS Deployment Framework](https://github.com/tstrall/adage).  
+This repository contains **independently developed and deployed AWS Lambda functions**, designed to work within [Adage: AWS Deployment Framework](https://github.com/usekarma/adage).  
 - **Decoupled from Terraform** – Lambdas do not require Terraform to be updated when new services are added.  
 - **Dynamically resolve dependencies** – Using AWS Parameter Store, Lambdas discover database endpoints, secrets, and other resources at runtime.  
 - **Secure & auditable** – Secrets are retrieved from AWS Secrets Manager only when needed.  
@@ -121,7 +121,7 @@ This repository is part of a broader open-source architecture I’ve developed t
 
 While some of these ideas were shaped through years of professional experience and refinement, the implementations here are entirely original — built independently and outside the context of any prior employment.
 
-For the full context and design principles behind this system, see [Adage: AWS Deployment Framework](https://github.com/tstrall/adage)
+For the full context and design principles behind this system, see [Adage: AWS Deployment Framework](https://github.com/usekarma/adage)
 
 ---
 
